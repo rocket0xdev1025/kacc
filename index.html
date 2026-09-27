@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>k/acc — Kardashev Accelerationism</title>
+  <meta name="description" content="Kardashev Accelerationism: pushing civilization beyond limits, powering memes, tech, and infinite cosmic energy." />
+  <meta name="theme-color" content="#040814" />
+  <link rel="icon" href="logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: "#040814",
+            beam: "#4fd2ff",
+            ion: "#e7f7ff",
+            nebula: "#8b6cff",
+            core: "#f5c56a",
+          },
+          fontFamily: {
+            display: ["Chakra Petch", "sans-serif"],
+            sans: ["Outfit", "sans-serif"],
+          },
+          boxShadow: {
+            beam: "0 0 32px rgba(79, 210, 255, 0.35)",
+            core: "0 0 32px rgba(245, 197, 106, 0.28)",
+          },
+          keyframes: {
+            marquee: {
+              from: { transform: "translateX(0)" },
+              to: { transform: "translateX(-50%)" },
+            },
+            orbit: {
+              to: { transform: "rotate(360deg)" },
+            },
+            flare: {
+              "0%, 100%": { opacity: "0.35", transform: "scale(0.96)" },
+              "50%": { opacity: "0.85", transform: "scale(1)" },
+            },
+          },
+          animation: {
+            marquee: "marquee 36s linear infinite",
+            orbit: "orbit 26s linear infinite",
+            "orbit-rev": "orbit 16s linear infinite reverse",
+            flare: "flare 3.6s ease-in-out infinite",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    ::selection { background: #4fd2ff; color: #041018; }
+    .beam-text {
+      background: linear-gradient(90deg, #8eecff 0%, #4fd2ff 28%, #f7fbff 52%, #ffe3a3 74%, #f5c56a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+    }
+    .hud {
+      background:
+        linear-gradient(#9aefff, #9aefff) 0 0 / 16px 2px no-repeat,
+        linear-gradient(#9aefff, #9aefff) 0 0 / 2px 16px no-repeat,
+        linear-gradient(#f5c56a, #f5c56a) 100% 0 / 16px 2px no-repeat,
+        linear-gradient(#f5c56a, #f5c56a) 100% 0 / 2px 16px no-repeat,
+        linear-gradient(#4fd2ff, #4fd2ff) 0 100% / 16px 2px no-repeat,
+        linear-gradient(#4fd2ff, #4fd2ff) 0 100% / 2px 16px no-repeat,
+        linear-gradient(#f5c56a, #f5c56a) 100% 100% / 16px 2px no-repeat,
+        linear-gradient(#f5c56a, #f5c56a) 100% 100% / 2px 16px no-repeat,
+        rgba(4, 10, 24, 0.72);
+      border: 1px solid rgba(79, 210, 255, 0.24);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.32), inset 0 0 40px rgba(79, 210, 255, 0.05);
+      backdrop-filter: blur(16px);
+    }
+    .read { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.72); }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-marquee, .animate-orbit, .animate-orbit-rev, .animate-flare { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-void bg-[url('bg.png')] bg-cover bg-center bg-scroll font-sans text-ion antialiased md:bg-fixed">
+  <div class="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(100deg,rgba(4,8,20,0.78)_0%,rgba(4,8,20,0.48)_52%,rgba(4,8,20,0.42)_100%),radial-gradient(ellipse_at_top,rgba(79,210,255,0.16),transparent_46%),linear-gradient(180deg,rgba(4,8,20,0.2),rgba(4,6,16,0.62))]"></div>
+  <div class="pointer-events-none fixed inset-0 -z-10 opacity-40 [background:repeating-linear-gradient(-18deg,transparent_0_140px,rgba(79,210,255,0.07)_140px_141px)]"></div>
+
+  <header class="sticky top-0 z-50 border-b border-beam/20 bg-[#040814]/70 backdrop-blur-xl">
+    <div class="h-0.5 bg-gradient-to-r from-nebula via-beam to-core"></div>
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+      <a href="#top" class="flex min-w-0 items-center gap-3">
+        <img src="logo.jpg" alt="" class="h-11 w-11 shrink-0 rounded-md object-cover ring-1 ring-beam/60 shadow-beam" />
+        <span class="min-w-0">
+          <span class="block truncate font-display text-sm font-semibold leading-tight tracking-wide text-ion sm:text-base">Kardashev Accelerationism</span>
+          <span class="font-display text-[11px] font-semibold tracking-[0.32em] text-core">k/acc</span>
+        </span>
+      </a>
+      <nav class="hidden items-center gap-6 font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-ion/75 lg:flex" aria-label="Primary">
+        <a class="transition hover:text-beam" href="#directive">Directive</a>
+        <a class="transition hover:text-beam" href="#scale">Scale</a>
+        <a class="transition hover:text-beam" href="#how-to-buy">How to Buy</a>
+        <a class="transition hover:text-beam" href="#chart">Chart</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://t.me/kaccsol" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="rounded-full ring-1 ring-beam/40 transition hover:ring-core hover:shadow-beam">
+          <img src="tg.png" alt="" class="h-9 w-9 rounded-full object-cover" />
+        </a>
+        <a href="https://x.com/kaccsol" target="_blank" rel="noopener noreferrer" aria-label="X" class="rounded-full ring-1 ring-white/30 transition hover:ring-core hover:shadow-core">
+          <img src="x.png" alt="" class="h-9 w-9 rounded-full object-cover" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-gradient-to-r from-beam via-cyan-100 to-core px-3 py-2 font-display text-[11px] font-bold uppercase tracking-[0.16em] text-[#041018] shadow-beam transition hover:brightness-110 sm:px-4 sm:text-xs">
+          Buy Now
+        </a>
+      </div>
+    </div>
+    <nav class="flex gap-5 overflow-x-auto px-4 pb-3 font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-ion/70 lg:hidden" aria-label="Mobile">
+      <a class="shrink-0 hover:text-beam" href="#directive">Directive</a>
+      <a class="shrink-0 hover:text-beam" href="#scale">Scale</a>
+      <a class="shrink-0 hover:text-beam" href="#how-to-buy">How to Buy</a>
+      <a class="shrink-0 hover:text-beam" href="#chart">Chart</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-8 pt-14 lg:grid-cols-[1.25fr_0.75fr] lg:pt-20">
+      <div>
+        <p class="read font-display text-[11px] font-semibold uppercase tracking-[0.42em] text-beam">Solana · Civilization Protocol</p>
+        <h1 class="read mt-4 font-display font-bold uppercase leading-[0.9] tracking-tight">
+          <span class="block text-[clamp(1rem,2.4vw,1.55rem)] font-medium tracking-[0.34em] text-ion/90">Kardashev</span>
+          <span class="beam-text mt-1 block text-[clamp(2.15rem,6.4vw,5.5rem)]">Accelerationism</span>
+        </h1>
+        <p class="mt-5 inline-flex items-center gap-3 border border-core/40 bg-black/40 px-3 py-1.5 font-display text-sm font-semibold tracking-[0.28em] text-core backdrop-blur">
+          <span class="h-1.5 w-1.5 animate-flare rounded-full bg-core shadow-core"></span>
+          k/acc
+        </p>
+        <p class="read mt-6 max-w-xl text-base leading-relaxed text-ion/90 sm:text-lg">
+          Kardashev Accelerationism: pushing civilization beyond limits, powering memes, tech, and infinite cosmic energy.
+        </p>
+        <p class="read mt-3 max-w-xl text-sm leading-relaxed text-ion/70">
+          The speed limit was a suggestion. $k/acc is the beam — culture as fuel, technology as the engine, a galaxy core that does not dim.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-gradient-to-r from-[#1690d4] via-beam to-core px-6 py-3.5 font-display text-sm font-bold uppercase tracking-[0.2em] text-[#041018] shadow-beam transition hover:scale-[1.03] hover:brightness-110">
+            Buy Now
+          </a>
+          <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-beam/50 bg-black/45 px-6 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.2em] text-ion backdrop-blur transition hover:border-core hover:text-core">
+            Chart
+          </a>
+        </div>
+        <div class="hud mt-8 flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
+          <div class="min-w-0 px-1">
+            <p class="font-display text-[10px] font-semibold uppercase tracking-[0.32em] text-beam/80">Contract · Solana</p>
+            <p id="ca-text" class="mt-1 truncate font-mono text-sm text-ion sm:text-base">TBA</p>
+          </div>
+          <button type="button" data-copy-ca class="inline-flex shrink-0 items-center justify-center gap-2 border border-core/50 bg-core/10 px-4 py-2.5 font-display text-xs font-bold uppercase tracking-[0.18em] text-core transition hover:bg-core hover:text-[#041018]" aria-label="Copy contract address">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="1.5"></rect>
+              <path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15"></path>
+            </svg>
+            <span data-copy-label>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative mx-auto flex h-[320px] w-[320px] items-center justify-center sm:h-[380px] sm:w-[380px]">
+        <div class="absolute inset-6 animate-flare rounded-full bg-beam/20 blur-3xl"></div>
+        <div class="absolute inset-2 animate-orbit rounded-full border border-dashed border-beam/50"></div>
+        <div class="absolute inset-8 animate-orbit-rev rounded-full border border-core/40"></div>
+        <div class="absolute inset-14 rounded-full border border-nebula/40"></div>
+        <img src="logo.jpg" alt="Kardashev Accelerationism logo, a cyan energy beam striking a spiral galaxy" class="relative z-10 h-[210px] w-[210px] rounded-full object-cover shadow-beam ring-2 ring-beam/70 sm:h-[250px] sm:w-[250px]" />
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 pb-6" aria-label="Project banner">
+      <figure class="hud p-2 sm:p-3">
+        <img src="banner.jpg" alt="Kardashev Accelerationism banner, an electric beam crossing deep space into a golden galactic core" class="block h-auto w-full" />
+        <figcaption class="flex items-center justify-between px-2 py-3 font-display text-[10px] uppercase tracking-[0.28em] text-ion/60 sm:px-3">
+          <span>The beam</span>
+          <span class="text-core">k/acc</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="mt-8 overflow-hidden border-y border-beam/20 bg-black/45 backdrop-blur" aria-hidden="true">
+      <div class="animate-marquee flex w-max gap-10 py-3 font-display text-xs font-semibold uppercase tracking-[0.32em] text-beam">
+        <span>Kardashev Accelerationism</span><span class="text-core">k/acc</span><span>Beyond limits</span><span>Memes</span><span>Tech</span><span>Cosmic energy</span><span>Solana</span><span>$k/acc</span>
+        <span>Kardashev Accelerationism</span><span class="text-core">k/acc</span><span>Beyond limits</span><span>Memes</span><span>Tech</span><span>Cosmic energy</span><span>Solana</span><span>$k/acc</span>
+      </div>
+    </div>
+
+    <section id="directive" class="scroll-mt-28 mx-auto max-w-6xl px-4 py-20">
+      <div class="relative">
+        <p class="pointer-events-none absolute -top-8 right-0 font-display text-7xl font-bold uppercase text-white/[0.05] sm:text-8xl">k/acc</p>
+        <p class="font-display text-[11px] font-semibold uppercase tracking-[0.38em] text-core">01 — Directive</p>
+        <h2 class="mt-3 max-w-3xl font-display text-3xl font-bold uppercase leading-none tracking-tight text-ion sm:text-5xl">Point civilization at the core</h2>
+      </div>
+      <blockquote class="hud mt-8 border-l-0 p-6 sm:p-8">
+        <p class="font-display text-xl font-semibold leading-snug text-ion sm:text-2xl">
+          Kardashev Accelerationism: pushing civilization beyond limits, powering memes, tech, and infinite cosmic energy.
+        </p>
+      </blockquote>
+      <div class="mt-5 grid gap-4 md:grid-cols-3">
+        <article class="hud p-6 transition duration-300 hover:-translate-y-1 hover:border-core/50">
+          <p class="font-display text-xs font-semibold tracking-[0.28em] text-beam">01</p>
+          <h3 class="mt-3 font-display text-xl font-bold uppercase text-ion">Beyond limits</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">A Kardashev climb does not pause at the next watt. k/acc shoves the ceiling until the scale itself has to move.</p>
+        </article>
+        <article class="hud p-6 transition duration-300 hover:-translate-y-1 hover:border-core/50">
+          <p class="font-display text-xs font-semibold tracking-[0.28em] text-nebula">02</p>
+          <h3 class="mt-3 font-display text-xl font-bold uppercase text-ion">Memes &amp; tech</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Culture is propulsion. Memes carry the signal across the chain. Technology builds the engine that keeps the burn going.</p>
+        </article>
+        <article class="hud p-6 transition duration-300 hover:-translate-y-1 hover:border-core/50">
+          <p class="font-display text-xs font-semibold tracking-[0.28em] text-core">03</p>
+          <h3 class="mt-3 font-display text-xl font-bold uppercase text-ion">Cosmic energy</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Cyan beam. Violet wake. Gold core. Infinite energy, aimed forward — the same fire as the logo, now a ticker.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="scale" class="scroll-mt-28 mx-auto max-w-6xl px-4 pb-20">
+      <p class="font-display text-[11px] font-semibold uppercase tracking-[0.38em] text-core">02 — The scale</p>
+      <h2 class="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">From a planet to a punchline that outruns light</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-ion/75 sm:text-base">The old scale measured how much starlight a civilization could burn. k/acc measures how fast the meme, the tech, and the energy stack on Solana.</p>
+      <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="hud p-5">
+          <p class="font-display text-[11px] tracking-[0.28em] text-beam">TYPE I</p>
+          <p class="mt-3 font-display text-2xl font-bold text-ion">Planet</p>
+          <p class="mt-2 text-sm leading-relaxed text-ion/70">One world, one power budget. Already in the rear view.</p>
+        </li>
+        <li class="hud p-5">
+          <p class="font-display text-[11px] tracking-[0.28em] text-beam">TYPE II</p>
+          <p class="mt-3 font-display text-2xl font-bold text-ion">Star</p>
+          <p class="mt-2 text-sm leading-relaxed text-ion/70">Harness the furnace. Build at the scale of a sun.</p>
+        </li>
+        <li class="hud p-5">
+          <p class="font-display text-[11px] tracking-[0.28em] text-nebula">TYPE III</p>
+          <p class="mt-3 font-display text-2xl font-bold text-ion">Galaxy</p>
+          <p class="mt-2 text-sm leading-relaxed text-ion/70">A spiral on the grid. The banner’s destination.</p>
+        </li>
+        <li class="hud border-core/40 p-5 shadow-core">
+          <p class="font-display text-[11px] tracking-[0.28em] text-core">k/acc</p>
+          <p class="mt-3 font-display text-2xl font-bold text-core">Beyond</p>
+          <p class="mt-2 text-sm leading-relaxed text-ion/70">Memes, tech, and cosmic energy with the limiter pulled.</p>
+        </li>
+      </ol>
+      <div class="mt-6 h-1.5 overflow-hidden bg-white/10" role="presentation">
+        <div class="h-full w-[96%] bg-gradient-to-r from-nebula via-beam to-core shadow-beam"></div>
+      </div>
+      <div class="mt-2 flex justify-between font-display text-[10px] uppercase tracking-[0.22em] text-ion/50">
+        <span>Ignition</span>
+        <span class="text-core">Acceleration</span>
+      </div>
+    </section>
+
+    <section id="how-to-buy" class="scroll-mt-28 mx-auto max-w-6xl px-4 pb-20">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.38em] text-core">03 — Ignition</p>
+          <h2 class="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">How to Buy</h2>
+          <p class="mt-4 max-w-xl text-sm leading-relaxed text-ion/75 sm:text-base">Four steps to swap SOL for $k/acc on Solana. Fuel the wallet, lock the contract, ignite the trade.</p>
+        </div>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center justify-center bg-gradient-to-r from-[#1690d4] via-beam to-core px-6 py-3 font-display text-sm font-bold uppercase tracking-[0.18em] text-[#041018] shadow-beam transition hover:brightness-110">
+          Buy Now
+        </a>
+      </div>
+
+      <ol class="relative mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <li class="hud p-5">
+          <p class="font-display text-3xl font-bold text-beam">01</p>
+          <h3 class="mt-3 font-display text-lg font-bold uppercase tracking-wide">Arm a wallet</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Install Phantom or Solflare. Create a wallet, or import one you control. Write the seed phrase on paper and keep it offline. That wallet is your cockpit on Solana.</p>
+        </li>
+        <li class="hud p-5">
+          <p class="font-display text-3xl font-bold text-beam">02</p>
+          <h3 class="mt-3 font-display text-lg font-bold uppercase tracking-wide">Fuel with SOL</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Buy SOL on an exchange and send it to your wallet address. Leave a little extra SOL for network fees. SOL is the fuel. $k/acc is the payload.</p>
+        </li>
+        <li class="hud p-5">
+          <p class="font-display text-3xl font-bold text-nebula">03</p>
+          <h3 class="mt-3 font-display text-lg font-bold uppercase tracking-wide">Lock the target</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Hit Buy Now. The swap opens with SOL in and $k/acc out. Before you sign, match the mint to the contract on this page.</p>
+        </li>
+        <li class="hud p-5">
+          <p class="font-display text-3xl font-bold text-core">04</p>
+          <h3 class="mt-3 font-display text-lg font-bold uppercase tracking-wide">Ignite the swap</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ion/75">Enter the SOL amount, check the quote and slippage, then confirm in your wallet. When the transaction lands, $k/acc is in your wallet. Watch it on the chart.</p>
+        </li>
+      </ol>
+
+      <div class="hud mt-4 flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="font-display text-[10px] font-semibold uppercase tracking-[0.28em] text-beam/80">$k/acc contract address</p>
+          <p class="mt-1 font-mono text-base text-ion">TBA</p>
+        </div>
+        <button type="button" data-copy-ca class="inline-flex items-center justify-center gap-2 border border-beam/50 px-4 py-2.5 font-display text-xs font-bold uppercase tracking-[0.18em] text-beam transition hover:bg-beam hover:text-[#041018]" aria-label="Copy contract address">
+          <span data-copy-label>Copy</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="chart" class="scroll-mt-28 mx-auto max-w-6xl px-4 pb-20">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.38em] text-core">04 — Telemetry</p>
+          <h2 class="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">Chart</h2>
+          <p class="mt-4 max-w-xl text-sm leading-relaxed text-ion/75">Live Dexscreener embed for the $k/acc pair on Solana. The beam, plotted.</p>
+        </div>
+        <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center justify-center border border-beam/50 bg-black/45 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.18em] text-ion backdrop-blur transition hover:border-core hover:text-core">
+          Chart
+        </a>
+      </div>
+      <div class="hud mt-8 overflow-hidden p-2 sm:p-3">
+        <iframe
+          title="k/acc Dexscreener chart"
+          src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+          class="h-[480px] w-full border-0 bg-[#040814] md:h-[640px]"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="mt-3 font-display text-[11px] uppercase tracking-[0.18em] text-ion/55">
+        Embed ·
+        <a class="text-beam underline decoration-beam/40 underline-offset-4 hover:text-core" href="https://dexscreener.com/solana/TBA?embed=1&theme=dark" target="_blank" rel="noopener noreferrer">dexscreener.com/solana/TBA</a>
+      </p>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 pb-20" aria-label="Community">
+      <div class="hud grid gap-6 p-6 sm:grid-cols-[1.2fr_0.8fr] sm:p-8">
+        <div>
+          <p class="font-display text-[11px] font-semibold uppercase tracking-[0.32em] text-beam">Join the burn</p>
+          <h2 class="mt-3 font-display text-3xl font-bold uppercase leading-none">Signal stays loud</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed text-ion/75">Memes move faster in a crowd. Pull the same direction — Telegram for the room, X for the flare.</p>
+        </div>
+        <div class="flex flex-col justify-center gap-3">
+          <a href="https://t.me/kaccsol" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 border border-beam/30 bg-black/30 px-4 py-3 transition hover:border-beam">
+            <img src="tg.png" alt="" class="h-10 w-10 rounded-full object-cover" />
+            <span>
+              <span class="block font-display text-sm font-bold uppercase tracking-wider">Telegram</span>
+              <span class="text-xs text-ion/60">t.me/kaccsol</span>
+            </span>
+          </a>
+          <a href="https://x.com/kaccsol" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 border border-white/15 bg-black/30 px-4 py-3 transition hover:border-core">
+            <img src="x.png" alt="" class="h-10 w-10 rounded-full object-cover" />
+            <span>
+              <span class="block font-display text-sm font-bold uppercase tracking-wider">X</span>
+              <span class="text-xs text-ion/60">x.com/kaccsol</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-beam/20 bg-black/50 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.jpg" alt="" class="h-9 w-9 rounded object-cover ring-1 ring-beam/40" />
+        <div>
+          <p class="font-display text-sm font-semibold">Kardashev Accelerationism</p>
+          <p class="font-display text-[11px] tracking-[0.28em] text-core">k/acc</p>
+        </div>
+      </div>
+      <p class="max-w-md text-xs leading-relaxed text-ion/50">$k/acc is a meme on Solana. Nothing here is financial advice. Cosmic energy is not a promise of returns.</p>
+    </div>
+  </footer>
+
+  <script>
+    const CA = "TBA";
+
+    function copyWithFallback(text) {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.top = "0";
+      area.style.left = "0";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      area.setSelectionRange(0, area.value.length);
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (err) {
+        ok = false;
+      }
+      area.remove();
+      return ok;
+    }
+
+    document.querySelectorAll("[data-copy-ca]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const label = btn.querySelector("[data-copy-label]");
+        let settled = false;
+        const mark = () => {
+          if (settled) return;
+          settled = true;
+          label.textContent = "Copied";
+          window.setTimeout(() => {
+            label.textContent = "Copy";
+          }, 1600);
+        };
+        const timer = window.setTimeout(() => {
+          copyWithFallback(CA);
+          mark();
+        }, 600);
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(CA).then(() => {
+            window.clearTimeout(timer);
+            mark();
+          }).catch(() => {
+            window.clearTimeout(timer);
+            copyWithFallback(CA);
+            mark();
+          });
+          return;
+        }
+        window.clearTimeout(timer);
+        copyWithFallback(CA);
+        mark();
+      });
+    });
+  </script>
+</body>
+</html>
